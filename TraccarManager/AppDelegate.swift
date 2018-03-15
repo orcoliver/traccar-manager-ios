@@ -23,12 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UserDefaults.standard.set("https://tracking.x-shield.cl", forKey: "url")
         if UserDefaults.standard.object(forKey: "url") != nil {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
             self.window?.makeKeyAndVisible()
         }
+        Thread.sleep(forTimeInterval: 3.0)
         #if FIREBASE
         FirebaseApp.configure()
         #endif
