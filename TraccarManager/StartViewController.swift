@@ -72,8 +72,8 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     func onError() {
         startButton.isEnabled = true
         
-        let alert = UIAlertController(title: "Error", message: "Server connection failed", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default))
+        let alert = UIAlertController(title: "Error", message: "Server connection failed", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default))
         present(alert, animated: true)
     }
 
