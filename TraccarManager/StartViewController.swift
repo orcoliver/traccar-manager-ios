@@ -16,7 +16,7 @@
 
 import UIKit
 
-class StartViewController: UIViewController {
+class StartViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var serverField: UITextField!
     @IBOutlet weak var startButton: UIButton!
@@ -55,6 +55,15 @@ class StartViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        serverField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     func onSuccess() {
         UserDefaults.standard.set(serverField.text, forKey: "url")
         performSegue(withIdentifier: "StartSegue", sender: self)
